@@ -1,0 +1,49 @@
+[[language]]
+name = "rust"
+
+[language.auto-pairs]
+'(' = ')'
+'{' = '}'
+'[' = ']'
+'"' = '"'
+'`' = '`'
+'<' = '>'
+"'" = "'"
+
+[language-server.rust-analyzer]
+command = "/home/miguel/.cargo/bin/rust-analyzer"
+
+[[language]]
+name = "go"
+
+[language-server.gopls]
+command = "/mnt/novaera/go/vscode/bin/gopls"
+
+[[language]]
+name = "typescript"
+language-servers = ["typescript-language-server"]
+
+[language-server.typescript-language-server.config.typescript.inlayHints]
+includeInlayEnumMemberValueHints = true
+includeInlayFunctionLikeReturnTypeHints = true
+includeInlayFunctionParameterTypeHints = true
+includeInlayParameterNameHints = "all"
+includeInlayParameterNameHintsWhenArgumentMatchesName = true
+includeInlayPropertyDeclarationTypeHints = true
+includeInlayVariableTypeHints = true
+
+[language-server.typescript-language-server.config.javascript.inlayHints]
+includeInlayEnumMemberValueHints = true
+includeInlayFunctionLikeReturnTypeHints = true
+includeInlayFunctionParameterTypeHints = true
+includeInlayParameterNameHints = "all"
+includeInlayParameterNameHintsWhenArgumentMatchesName = true
+includeInlayPropertyDeclarationTypeHints = true
+includeInlayVariableTypeHints = true
+
+[language-server.typescript-language-server.config.format]
+semicolons = "insert"
+indentSize = 4 
+tabSize = 4
+
+
