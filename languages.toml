@@ -1,5 +1,7 @@
 [[language]]
 name = "rust"
+auto-format = false
+formatter.command = "rustfmt"
 
 [language.auto-pairs]
 '(' = ')'
@@ -13,6 +15,14 @@ name = "rust"
 [language-server.rust-analyzer]
 command = "/home/miguel/.cargo/bin/rust-analyzer"
 
+[language-server.rust-analyzer.config]
+inlayHints.bindingModeHints.enable = false
+inlayHints.closingBraceHints.minLines = 10
+inlayHints.closureReturnTypeHints.enable = "with_block"
+inlayHints.discriminantHints.enable = "fieldless"
+inlayHints.lifetimeElisionHints.enable = "skip_trivial"
+inlayHints.typeHints.hideClosureInitialization = false
+
 [[language]]
 name = "go"
 
@@ -22,6 +32,34 @@ command = "/mnt/novaera/go/vscode/bin/gopls"
 [[language]]
 name = "typescript"
 language-servers = ["typescript-language-server"]
+
+command = "gopls"
+
+[language-server.gopls.config.hints]
+assignVariableTypes = true
+compositeLiteralFields = true
+constantValues = true
+functionTypeParameters = true
+parameterNames = true
+rangeVariableTypes = true
+
+[language-server.golangci-lint-lsp]
+command = "golangci-lint-langserver"
+
+[language-server.golangci-lint-lsp.config]
+command = ["golangci-lint", "run", "--out-format", "json", "--issues-exit-code=1"]
+
+
+[[language]]
+name = "typescript"
+# indent = {tab-width = 2, unit = " "}
+language-servers = ["typescript-language-server"]
+
+[language-server.typescript-language-server]
+command = "typescript-language-server"
+args = ["--stdio"]
+config.hostInfo = "helix"
+config.format = {"semicolons"="insert", "tabSize"=4}
 
 [language-server.typescript-language-server.config.typescript.inlayHints]
 includeInlayEnumMemberValueHints = true
