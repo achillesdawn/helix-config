@@ -27,12 +27,7 @@ inlayHints.typeHints.hideClosureInitialization = false
 name = "go"
 
 [language-server.gopls]
-command = "/mnt/novaera/go/vscode/bin/gopls"
-
-[[language]]
-name = "typescript"
-language-servers = ["typescript-language-server"]
-
+# command = "/mnt/novaera/go/vscode/bin/gopls"
 command = "gopls"
 
 [language-server.gopls.config.hints]
@@ -42,6 +37,7 @@ constantValues = true
 functionTypeParameters = true
 parameterNames = true
 rangeVariableTypes = true
+
 
 [language-server.golangci-lint-lsp]
 command = "golangci-lint-langserver"
@@ -79,9 +75,9 @@ includeInlayParameterNameHintsWhenArgumentMatchesName = true
 includeInlayPropertyDeclarationTypeHints = true
 includeInlayVariableTypeHints = true
 
-[language-server.typescript-language-server.config.format]
-semicolons = "insert"
-indentSize = 4 
-tabSize = 4
+# [language-server.typescript-language-server.config.format]
+# semicolons = "insert"
+# indentSize = 4 
+# tabSize = 4
 
 
