@@ -53,10 +53,31 @@ block-comment-tokens = { start = "/*", end = "*/" }
 language-servers = [ "gopls", "golangci-lint-lsp" ]
 # TODO: gopls needs utf-8 offsets?
 indent = { tab-width = 4, unit = "\t" }
+formatter = { command = "goimports"}
 
 [[grammar]]
 name = "go"
 source = { git = "https://github.com/tree-sitter/tree-sitter-go", rev = "64457ea6b73ef5422ed1687178d4545c3e91334a" }
+
+[language-server.gopls]
+# command = "/mnt/novaera/go/vscode/bin/gopls"
+command = "gopls"
+
+[language-server.gopls.config.hints]
+assignVariableTypes = true
+compositeLiteralFields = true
+constantValues = true
+functionTypeParameters = true
+parameterNames = true
+rangeVariableTypes = true
+
+
+[language-server.golangci-lint-lsp]
+command = "golangci-lint"
+
+[language-server.golangci-lint-lsp.config]
+command = ["golangci-lint", "run", "--out-format", "json", "--issues-exit-code=1"]
+
 
 [[language]]
 name = "gomod"
@@ -99,26 +120,6 @@ indent = { tab-width = 4, unit = "\t" }
 [[grammar]]
 name = "gowork"
 source = { git = "https://github.com/omertuc/tree-sitter-go-work", rev = "6dd9dd79fb51e9f2abc829d5e97b15015b6a8ae2" }
-
-
-[language-server.gopls]
-# command = "/mnt/novaera/go/vscode/bin/gopls"
-command = "gopls"
-
-[language-server.gopls.config.hints]
-assignVariableTypes = true
-compositeLiteralFields = true
-constantValues = true
-functionTypeParameters = true
-parameterNames = true
-rangeVariableTypes = true
-
-
-[language-server.golangci-lint-lsp]
-command = "golangci-lint-langserver"
-
-[language-server.golangci-lint-lsp.config]
-command = ["golangci-lint", "run", "--out-format", "json", "--issues-exit-code=1"]
 
 
 [[language]]
