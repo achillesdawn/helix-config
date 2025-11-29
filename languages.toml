@@ -35,10 +35,10 @@ file-types = ["go"]
 roots = ["go.work", "go.mod"]
 comment-token = "//"
 block-comment-tokens = { start = "/*", end = "*/" }
-language-servers = [ "gopls", "golangci-lint-lsp" ]
+language-servers = ["gopls", "golangci-lint-lsp"]
 indent = { tab-width = 4, unit = "\t" }
 auto-format = true
-formatter = { command = "goimports"}
+formatter = { command = "goimports" }
 
 
 [language-server.gopls]
@@ -62,18 +62,25 @@ rangeVariableTypes = true
 command = "golangci-lint-langserver"
 
 [language-server.golangci-lint-lsp.config]
-command = ["golangci-lint", "run", "--output.json.path=stdout", "--show-stats=false", "--issues-exit-code=1"]
+command = [
+  "golangci-lint",
+  "run",
+  "--output.json.path=stdout",
+  "--show-stats=false",
+  "--issues-exit-code=1",
+]
 
-[[language]]
-name = "typescript"
-# indent = {tab-width = 2, unit = " "}
-language-servers = ["typescript-language-server"]
+# [[language]]
+# name = "typescript"
+# auto-format = true
+# indent = {tab-width = 4, unit = " "}
+# language-servers = ["typescript-language-server"]
 
 [language-server.typescript-language-server]
 command = "typescript-language-server"
 args = ["--stdio"]
 config.hostInfo = "helix"
-config.format = {"semicolons"="insert", "tabSize"=4}
+config.format = { "semicolons" = "insert", "tabSize" = 4 }
 
 [language-server.typescript-language-server.config.typescript.inlayHints]
 includeInlayEnumMemberValueHints = true
@@ -105,12 +112,12 @@ file-types = ["ts", "tsx"]
 auto-format = true
 language-servers = ["deno-lsp"]
 
-[[language]]
-name = "javascript"
-roots = ["deno.json", "deno.jsonc", "package.json"]
-file-types = ["js", "jsx"]
-auto-format = true
-language-servers = ["deno-lsp"]
+# [[language]]
+# name = "javascript"
+# roots = ["deno.json", "deno.jsonc", "package.json"]
+# file-types = ["js", "jsx"]
+# auto-format = true
+# language-servers = ["deno-lsp"]
 
 [language-server.deno-lsp]
 command = "deno"
@@ -118,7 +125,7 @@ args = ["lsp"]
 config.deno.enable = true
 
 [language-server.deno-lsp.config.deno.inlayHints]
-parameterNames = { enabled = "all"}
+parameterNames = { enabled = "all" }
 parameterTypes = { enabled = true }
 variableTypes = { enabled = true }
 propertyDeclarationTypes = { enabled = true }
@@ -127,7 +134,7 @@ enumMemberValues = { enabled = true }
 
 [[language]]
 name = "python"
-language-servers = ["ruff", "pyright"]
+language-servers = ["ruff", "ty"]
 
 [language-server.pyright.config.python.analysis]
 typeCheckingMode = "strict"
@@ -139,3 +146,22 @@ args = ["server"]
 [language-server.ty]
 command = "ty"
 args = ["server"]
+
+
+[[language]]
+name = "toml"
+# https://github.com/tamasfe/taplo/issues/580#issuecomment-2004174721
+roots = ["."]
+language-servers = ["taplo"]
+
+[language-server.postgres-lsp]
+command = "postgres-language-server"
+args = ["lsp-proxy"]
+
+[language-server.sqls]
+command = "sqls"
+
+# 2. Configure the SQL language to use this server
+[[language]]
+name = "sql"
+language-servers = ["sqls"]
