@@ -5,11 +5,20 @@ string = "#73DACA"
 "type.enum.variant" = { fg = "#D1FC9D", modifiers = ["italic"] }
 "constant" = "red"
 
-warning = { fg = "#ff942f" }
+warning = "warning"
+hint = "warning"
 
 "ui.background" = { bg = "#0a0a0d" }
 "ui.virtual.inlay-hint" = "#525f88"
-
+# "ui.statusline" = {fg = "#73DACA", bg = "#525f88"}
+"ui.selection" = { bg = "#73DACA", modifiers = ["italic"] }
+"ui.highlight" = "#73DACA"
+# "ui.highlight" = "#FF0000"
+# "ui.text.focus" = "#FF0000"
+# "ui.cursor.insert" = { fg = "#FF0000" }
+"ui.selection.primary" = { bg = "#142724a6" }
 
 [palette]
 red = "#C0768E"
+lightning = "#ffcd1c"
+warning = "#ff942f"
