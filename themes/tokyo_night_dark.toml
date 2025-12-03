@@ -1,0 +1,15 @@
+inherits = "tokyonight"
+
+string = "#73DACA"
+"namespace" = "#0DB9D7"
+"type.enum.variant" = { fg = "#D1FC9D", modifiers = ["italic"] }
+"constant" = "red"
+
+warning = { fg = "#ff942f" }
+
+"ui.background" = { bg = "#0a0a0d" }
+"ui.virtual.inlay-hint" = "#525f88"
+
+
+[palette]
+red = "#C0768E"
