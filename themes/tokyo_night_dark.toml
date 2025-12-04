@@ -9,6 +9,13 @@ inherits = "tokyonight"
 "type.enum.variant" = { fg = "#D1FC9D", modifiers = ["italic"] }
 # "type" = "type_green"
 "type.builtin" = "type_green"
+"type.parameter" = "red"
+
+# runtime/queries/rust/highlights.scm
+#  primitive -> type.builtin.primitive
+# ; from @type.builtin to builtin.primitive
+# (primitive_type) @type.builtin.primitive
+"type.builtin.primitive" = "red"
 
 "constant" = "red"
 "constant.builtin" = "red"
