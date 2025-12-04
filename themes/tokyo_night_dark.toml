@@ -7,7 +7,7 @@ inherits = "tokyonight"
 "namespace" = "teal"
 
 "type.enum.variant" = { fg = "#D1FC9D", modifiers = ["italic"] }
-# "type" = "type_green"
+"type" = "type_green"
 "type.builtin" = "type_green"
 "type.parameter" = "red"
 
