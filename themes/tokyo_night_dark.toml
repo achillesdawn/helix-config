@@ -1,9 +1,19 @@
 inherits = "tokyonight"
 
-string = "#73DACA"
-"namespace" = "#0DB9D7"
+"string" = { fg = "steel_green", modifiers = [] }
+"string.special" = { fg = "steel_green", modifiers = ["italic"] }
+"string.regexp" = { fg = "steel_green", modifiers = ["italic"]}
+
+"namespace" = "teal"
+
 "type.enum.variant" = { fg = "#D1FC9D", modifiers = ["italic"] }
+# "type" = "type_green"
+"type.builtin" = "type_green"
+
 "constant" = "red"
+"constant.builtin" = "red"
+
+"variable.parameter" = "white"
 
 warning = "warning"
 hint = "warning"
@@ -11,14 +21,18 @@ hint = "warning"
 "ui.background" = { bg = "#0a0a0d" }
 "ui.virtual.inlay-hint" = "#525f88"
 # "ui.statusline" = {fg = "#73DACA", bg = "#525f88"}
-"ui.selection" = { bg = "#73DACA", modifiers = ["italic"] }
+"ui.selection" = { fg = "lightning", bg = "#525f88", modifiers = ["italic"] }
 "ui.highlight" = "#73DACA"
 # "ui.highlight" = "#FF0000"
 # "ui.text.focus" = "#FF0000"
 # "ui.cursor.insert" = { fg = "#FF0000" }
-"ui.selection.primary" = { bg = "#142724a6" }
+"ui.selection.primary" = { bg = "#042326" }
+
 
 [palette]
 red = "#C0768E"
 lightning = "#ffcd1c"
 warning = "#ff942f"
+teal = "#0DB9D7"
+steel_green = "#73DACA"
+type_green = "#8BE9EC"
