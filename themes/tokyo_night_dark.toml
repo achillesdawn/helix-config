@@ -7,9 +7,9 @@ inherits = "tokyonight"
 "namespace" = "teal"
 
 "type.enum.variant" = { fg = "#D1FC9D", modifiers = ["italic"] }
-"type" = "type_green"
-"type.builtin" = "type_green"
-"type.parameter" = "red"
+"type" = { fg = "type_green", modifiers = ["bold"]}
+"type.builtin" = { fg = "type_green", modifiers = ["bold"]}
+"type.parameter" = { fg = "red", modifiers = ["bold"]}
 
 # runtime/queries/rust/highlights.scm
 #  primitive -> type.builtin.primitive
