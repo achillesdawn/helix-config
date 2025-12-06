@@ -17,6 +17,10 @@ inherits = "tokyonight"
 # (primitive_type) @type.builtin.primitive
 "type.builtin.primitive" = "red"
 
+"keyword.control" = { fg = "purple" , modifiers = ["bold"]}
+"keyword.storage" = { fg = "purple" , modifiers = ["bold"]}
+"keyword.storage.modifier" = { fg = "purple", modifiers = []}
+
 "constant" = "red"
 "constant.builtin" = "red"
 
@@ -37,6 +41,7 @@ hint = "warning"
 
 
 [palette]
+purple = "#BB9AF7"
 red = "#C0768E"
 lightning = "#ffcd1c"
 warning = "#ff942f"
