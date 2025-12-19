@@ -28,6 +28,12 @@ inherits = "tokyonight"
 
 warning = "warning"
 hint = "warning"
+"diagnostic.error" = { underline = { style = "line", color = "error" } }
+"diagnostic.warning" = { underline = { style = "line", color = "yellow"} }
+"diagnostic.info" = { underline = { style = "line", color = "info"} }
+"diagnostic.hint" = { underline = { style = "line", color = "hint" } }
+"diagnostic.unnecessary" = { modifiers = ["dim"] }
+"diagnostic.deprecated" = { modifiers = ["crossed_out"] }
 
 "ui.background" = { bg = "#0a0a0d" }
 "ui.virtual.inlay-hint" = "#525f88"
