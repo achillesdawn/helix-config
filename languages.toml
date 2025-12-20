@@ -42,7 +42,6 @@ formatter = { command = "goimports" }
 
 
 [language-server.gopls]
-# command = "/mnt/novaera/go/vscode/bin/gopls"
 command = "gopls"
 args = ["-logfile=/tmp/gopls.log", "serve"]
 
@@ -134,7 +133,8 @@ enumMemberValues = { enabled = true }
 
 [[language]]
 name = "python"
-language-servers = ["ruff", "ty"]
+language-servers = ["ruff", "basedpyright"]
+auto-format = true
 
 [language-server.pyright.config.python.analysis]
 typeCheckingMode = "strict"
@@ -142,6 +142,10 @@ typeCheckingMode = "strict"
 [language-server.ruff]
 command = "ruff"
 args = ["server"]
+
+[language-server.basedpyright.basedpyright.analysis]
+inlayHints.callArgumentNames = true
+inlayHints.genericTypes = true
 
 [language-server.ty]
 command = "ty"

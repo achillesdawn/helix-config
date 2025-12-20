@@ -10,7 +10,6 @@ render = true
 skip-levels = 1
 
 [keys.normal]
-
 esc = ["collapse_selection", "keep_primary_selection"]
 
 "home" = ["goto_first_nonwhitespace"]
@@ -20,9 +19,10 @@ esc = ["collapse_selection", "keep_primary_selection"]
 C-d = ["scroll_down", "move_line_down"]
 C-u = ["scroll_up", "move_line_up"]
 
+q = "move_prev_word_start"
+
 [keys.insert]
 "home" = ["goto_first_nonwhitespace"]
-
 
 [keys.normal.space]
 "[" = "add_newline_above"
