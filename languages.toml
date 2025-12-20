@@ -165,3 +165,16 @@ command = "sqls"
 [[language]]
 name = "sql"
 language-servers = ["sqls"]
+
+
+[[language]]
+name = "c"
+auto-format = true
+
+[[language]]
+name = "cpp"
+auto-format = true
+
+[language-server.clangd]
+command = "clangd"
+args = ["--query-driver=/home/miguel/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-g*", "--background-index"]
