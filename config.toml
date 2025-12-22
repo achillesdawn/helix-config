@@ -20,6 +20,7 @@ C-d = ["scroll_down", "move_line_down"]
 C-u = ["scroll_up", "move_line_up"]
 
 q = "move_prev_word_start"
+Q = "move_prev_long_word_start"
 
 [keys.insert]
 "home" = ["goto_first_nonwhitespace"]

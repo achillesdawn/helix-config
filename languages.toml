@@ -8,7 +8,7 @@ name = "rust"
 '"' = '"'
 '`' = '`'
 "'" = "'"
-'|' = '|'
+# '|' = '|'
 
 [language-server.rust-analyzer]
 command = "/home/miguel/.cargo/bin/rust-analyzer"
