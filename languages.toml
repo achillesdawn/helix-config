@@ -11,7 +11,7 @@ name = "rust"
 # '|' = '|'
 
 [language-server.rust-analyzer]
-command = "/home/miguel/.cargo/bin/rust-analyzer"
+command = "rust-analyzer"
 
 [language-server.rust-analyzer.config]
 inlayHints.bindingModeHints.enable = true
