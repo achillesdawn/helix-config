@@ -11,7 +11,7 @@ name = "rust"
 # '|' = '|'
 
 [language-server.rust-analyzer]
-command = "/home/miguel/.cargo/bin/rust-analyzer"
+command = "rust-analyzer"
 
 [language-server.rust-analyzer.config]
 inlayHints.bindingModeHints.enable = true
@@ -133,7 +133,8 @@ enumMemberValues = { enabled = true }
 
 [[language]]
 name = "python"
-language-servers = ["ruff", "basedpyright"]
+# language-servers = ["ruff", "basedpyright"]
+language-servers = ["ruff", "ty"]
 auto-format = true
 
 [language-server.pyright.config.python.analysis]
@@ -182,3 +183,7 @@ auto-format = true
 [language-server.clangd]
 command = "clangd"
 args = ["--query-driver=/home/miguel/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-g*", "--background-index"]
+
+[[language]]
+name = "svelte"
+auto-format = true
