@@ -117,16 +117,16 @@ includeInlayVariableTypeHints = true
 # tabSize = 4
 
 [[language]]
-name = "typescript"
+name = "javascript"
 roots = ["deno.json", "deno.jsonc", "package.json"]
-file-types = ["ts", "tsx"]
+file-types = ["js", "jsx"]
 auto-format = true
 language-servers = ["deno-lsp"]
 
 [[language]]
-name = "javascript"
+name = "typescript"
 roots = ["deno.json", "deno.jsonc", "package.json"]
-file-types = ["js", "jsx"]
+file-types = ["ts", "tsx"]
 auto-format = true
 language-servers = ["deno-lsp"]
 
@@ -178,11 +178,9 @@ args = ["lsp-proxy"]
 [language-server.sqls]
 command = "sqls"
 
-# 2. Configure the SQL language to use this server
 [[language]]
 name = "sql"
 language-servers = ["sqls"]
-
 
 [[language]]
 name = "c"
@@ -200,16 +198,19 @@ args = [
 ]
 
 [[language]]
-name = "svelte"
-auto-format = true
-language-servers = ["rumdl"]
+name = "docker"
 
 [language-server.docker-language-server]
 command = "docker-language-server"
 args = ["start", "--stdio", "telemetry", "off"]
 
 [[language]]
+name = "svelte"
+auto-format = true
+
+[[language]]
 name = "markdown"
+language-servers = ["rumdl"]
 
 [language.auto-pairs]
 '(' = ')'
