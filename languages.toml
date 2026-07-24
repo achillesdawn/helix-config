@@ -21,11 +21,23 @@ inlayHints.discriminantHints.enable = "fieldless"
 inlayHints.lifetimeElisionHints.enable = "skip_trivial"
 inlayHints.typeHints.hideClosureInitialization = false
 
+
 [language-server.rust-analyzer.config.check]
 command = "clippy"
 
-[language-server.rust-analyzer.config.cargo]
-allFeatures = true
+# [language-server.rust-analyzer.config.cargo]
+# allFeatures = true
+
+# [language-server.rust-analyzer.config.completion.snippets.custom."tokio test"]
+# prefix = ["ttest", "tokiotest"]
+# body = [
+#   "#[tokio::test]",
+#   "async fn ${1:test_name}() {",
+#   "    ${0}",
+#   "}"
+# ]
+# description = "Scaffold a #[tokio::test] async function"
+# scope = "item"
 
 [[language]]
 name = "go"
@@ -111,12 +123,12 @@ file-types = ["ts", "tsx"]
 auto-format = true
 language-servers = ["deno-lsp"]
 
-# [[language]]
-# name = "javascript"
-# roots = ["deno.json", "deno.jsonc", "package.json"]
-# file-types = ["js", "jsx"]
-# auto-format = true
-# language-servers = ["deno-lsp"]
+[[language]]
+name = "javascript"
+roots = ["deno.json", "deno.jsonc", "package.json"]
+file-types = ["js", "jsx"]
+auto-format = true
+language-servers = ["deno-lsp"]
 
 [language-server.deno-lsp]
 command = "deno"
@@ -182,8 +194,28 @@ auto-format = true
 
 [language-server.clangd]
 command = "clangd"
-args = ["--query-driver=/home/miguel/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-g*", "--background-index"]
+args = [
+  "--query-driver=/home/miguel/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-g*",
+  "--background-index",
+]
 
 [[language]]
 name = "svelte"
 auto-format = true
+language-servers = ["rumdl"]
+
+[language-server.docker-language-server]
+command = "docker-language-server"
+args = ["start", "--stdio", "telemetry", "off"]
+
+[[language]]
+name = "markdown"
+
+[language.auto-pairs]
+'(' = ')'
+'{' = '}'
+'[' = ']'
+'"' = '"'
+# '`' = '`'
+# "'" = "'"
+# '|' = '|'

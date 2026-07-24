@@ -19,6 +19,9 @@ esc = ["collapse_selection", "keep_primary_selection"]
 C-d = ["scroll_down", "move_line_down"]
 C-u = ["scroll_up", "move_line_up"]
 
+C-b = "half_page_up"
+C-f = "half_page_down"
+
 X = ["extend_visual_line_up", "extend_to_line_end"]
 
 [keys.insert]
