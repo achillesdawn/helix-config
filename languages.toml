@@ -197,9 +197,6 @@ args = [
   "--background-index",
 ]
 
-[[language]]
-name = "docker"
-
 [language-server.docker-language-server]
 command = "docker-language-server"
 args = ["start", "--stdio", "telemetry", "off"]
