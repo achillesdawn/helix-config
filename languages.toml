@@ -207,7 +207,7 @@ auto-format = true
 
 [[language]]
 name = "markdown"
-language-servers = ["rumdl"]
+language-servers = ["marksman", "rumdl"]
 
 [language.auto-pairs]
 '(' = ')'
