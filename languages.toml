@@ -36,11 +36,23 @@ inlayHints.discriminantHints.enable = "fieldless"
 inlayHints.lifetimeElisionHints.enable = "skip_trivial"
 inlayHints.typeHints.hideClosureInitialization = false
 
+
 [language-server.rust-analyzer.config.check]
 command = "clippy"
 
-[language-server.rust-analyzer.config.cargo]
-allFeatures = true
+# [language-server.rust-analyzer.config.cargo]
+# allFeatures = true
+
+# [language-server.rust-analyzer.config.completion.snippets.custom."tokio test"]
+# prefix = ["ttest", "tokiotest"]
+# body = [
+#   "#[tokio::test]",
+#   "async fn ${1:test_name}() {",
+#   "    ${0}",
+#   "}"
+# ]
+# description = "Scaffold a #[tokio::test] async function"
+# scope = "item"
 
 [language-server.rust-analyzer.config.completion.snippets.custom]
 "tokio test" = { prefix = [
