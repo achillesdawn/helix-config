@@ -74,6 +74,39 @@ command = "clippy"
 
 # "Rc::new" = { postfix = "rc", body = "Rc::new(${receiver})", requires = "std::rc::Rc", description = "Put the expression into an `Rc`", scope = "expr" }
 
+[language-server.rust-analyzer.config.completion.snippets.custom]
+"tokio test" = { prefix = [
+  "ttest",
+  "tokiotest",
+], body = [
+  "#[tokio::test]",
+  "async fn ${1:test_name}() {",
+  "    ${0}",
+  "}",
+], description = "Scaffold a #[tokio::test] async function", scope = "item" }
+
+"tokio test eyre" = { prefix = [
+  "ttesteyre",
+  "tokiotesteyre",
+], body = [
+  "#[tokio::test]",
+  "async fn ${1:test_name}() -> eyre::Result<()> {",
+  "    Ok(())",
+  "}",
+], description = "Scaffold a #[tokio::test] async function", scope = "item" }
+
+Ok = { postfix = "ok", body = "Ok(${receiver})", description = "Wrap the expression in a `Result::Ok`", scope = "expr" }
+
+"Box::pin" = { postfix = "pinbox", body = "Box::pin(${receiver})", requires = "std::boxed::Box", description = "Put the expression into a pinned `Box`", scope = "expr" }
+
+"Arc::new" = { postfix = "arc", body = "Arc::new(${receiver})", requires = "std::sync::Arc", description = "Put the expression into an `Arc`", scope = "expr" }
+
+Some = { postfix = "some", body = "Some(${receiver})", description = "Wrap the expression in an `Option::Some`", scope = "expr" }
+
+Err = { postfix = "err", body = "Err(${receiver})", description = "Wrap the expression in a `Result::Err`", scope = "expr" }
+
+"Rc::new" = { postfix = "rc", body = "Rc::new(${receiver})", requires = "std::rc::Rc", description = "Put the expression into an `Rc`", scope = "expr" }
+
 [[language]]
 name = "go"
 scope = "source.go"
