@@ -1,5 +1,20 @@
 [[language]]
 name = "rust"
+scope = "source.rust"
+injection-regex = "rs|rust"
+file-types = ["rs"]
+roots = ["Cargo.toml", "Cargo.lock"]
+shebangs = ["rust-script", "cargo"]
+auto-format = true
+comment-tokens = ["//", "///", "//!"]
+block-comment-tokens = [
+  { start = "/*", end = "*/" },
+  { start = "/**", end = "*/" },
+  { start = "/*!", end = "*/" },
+]
+language-servers = ["rust-analyzer"]
+indent = { tab-width = 4, unit = "    " }
+persistent-diagnostic-sources = ["rustc", "clippy"]
 
 [language.auto-pairs]
 '(' = ')'
@@ -7,14 +22,14 @@ name = "rust"
 '[' = ']'
 '"' = '"'
 '`' = '`'
+'|' = '|'
 # "'" = "'"
-# '|' = '|'
 
 [language-server.rust-analyzer]
 command = "rust-analyzer"
 
 [language-server.rust-analyzer.config]
-inlayHints.bindingModeHints.enable = true
+inlayHints.bindingModeHints.enable = false
 inlayHints.closingBraceHints.minLines = 10
 inlayHints.closureReturnTypeHints.enable = "with_block"
 inlayHints.discriminantHints.enable = "fieldless"
@@ -28,16 +43,36 @@ command = "clippy"
 # [language-server.rust-analyzer.config.cargo]
 # allFeatures = true
 
-# [language-server.rust-analyzer.config.completion.snippets.custom."tokio test"]
-# prefix = ["ttest", "tokiotest"]
-# body = [
+# [language-server.rust-analyzer.config.completion.snippets.custom]
+# "tokio test" = { prefix = [
+#   "tokiotest",
+# ], body = [
 #   "#[tokio::test]",
 #   "async fn ${1:test_name}() {",
 #   "    ${0}",
-#   "}"
-# ]
-# description = "Scaffold a #[tokio::test] async function"
-# scope = "item"
+#   "}",
+# ], description = "Scaffold a #[tokio::test] async function", scope = "item" }
+
+# "tokio test eyre" = { prefix = [
+#   "tokiotesteyre",
+# ], body = [
+#   "#[tokio::test]",
+#   "async fn ${1:test_name}() -> eyre::Result<()> {",
+#   "    Ok(())",
+#   "}",
+# ], description = "Scaffold a #[tokio::test] async function", scope = "item" }
+
+# Ok = { postfix = "ok", body = "Ok(${receiver})", description = "Wrap the expression in a `Result::Ok`", scope = "expr" }
+
+# "Box::pin" = { postfix = "pinbox", body = "Box::pin(${receiver})", requires = "std::boxed::Box", description = "Put the expression into a pinned `Box`", scope = "expr" }
+
+# "Arc::new" = { postfix = "arc", body = "Arc::new(${receiver})", requires = "std::sync::Arc", description = "Put the expression into an `Arc`", scope = "expr" }
+
+# Some = { postfix = "some", body = "Some(${receiver})", description = "Wrap the expression in an `Option::Some`", scope = "expr" }
+
+# Err = { postfix = "err", body = "Err(${receiver})", description = "Wrap the expression in a `Result::Err`", scope = "expr" }
+
+# "Rc::new" = { postfix = "rc", body = "Rc::new(${receiver})", requires = "std::rc::Rc", description = "Put the expression into an `Rc`", scope = "expr" }
 
 [[language]]
 name = "go"
@@ -51,7 +86,6 @@ language-servers = ["gopls", "golangci-lint-lsp"]
 indent = { tab-width = 4, unit = "\t" }
 auto-format = true
 formatter = { command = "goimports" }
-
 
 [language-server.gopls]
 command = "gopls"
@@ -81,11 +115,45 @@ command = [
   "--issues-exit-code=1",
 ]
 
-# [[language]]
-# name = "typescript"
-# auto-format = true
-# indent = {tab-width = 4, unit = " "}
-# language-servers = ["typescript-language-server"]
+[[language]]
+name = "typescript"
+auto-format = true
+indent = { tab-width = 4, unit = "    " }
+roots = ["package.json"]
+# roots = ["deno.json", "deno.jsonc", "package.json"]
+file-types = ["ts", "tsx"]
+# language-servers = ["tsc-lsp"]
+language-servers = [{ name = "typescript-language-server" }]
+
+[language-server.tsc-lsp]
+command = "npx"
+args = ["tsc", "--lsp", "--stdio"]
+
+[language-server.tsc-lsp.config.typescript.format]
+tabSize = 4
+indentSize = 4
+convertTabsToSpaces = true
+
+[language-server.tsc-lsp.config.javascript.format]
+tabSize = 4
+indentSize = 4
+convertTabsToSpaces = true
+
+[language-server.tsc-lsp.config.typescript.inlayHints]
+parameterNames.enabled = "all"
+parameterTypes.enabled = true
+variableTypes.enabled = true
+propertyDeclarationTypes.enabled = true
+functionLikeReturnTypes.enabled = true
+enumMemberValues.enabled = true
+
+[language-server.tsc-lsp.config.javascript.inlayHints]
+parameterNames.enabled = "all"
+parameterTypes.enabled = true
+variableTypes.enabled = true
+propertyDeclarationTypes.enabled = true
+functionLikeReturnTypes.enabled = true
+enumMemberValues.enabled = true
 
 [language-server.typescript-language-server]
 command = "typescript-language-server"
@@ -111,25 +179,6 @@ includeInlayParameterNameHintsWhenArgumentMatchesName = true
 includeInlayPropertyDeclarationTypeHints = true
 includeInlayVariableTypeHints = true
 
-# [language-server.typescript-language-server.config.format]
-# semicolons = "insert"
-# indentSize = 4 
-# tabSize = 4
-
-[[language]]
-name = "javascript"
-roots = ["deno.json", "deno.jsonc", "package.json"]
-file-types = ["js", "jsx"]
-auto-format = true
-language-servers = ["deno-lsp"]
-
-[[language]]
-name = "typescript"
-roots = ["deno.json", "deno.jsonc", "package.json"]
-file-types = ["ts", "tsx"]
-auto-format = true
-language-servers = ["deno-lsp"]
-
 [language-server.deno-lsp]
 command = "deno"
 args = ["lsp"]
@@ -145,8 +194,10 @@ enumMemberValues = { enabled = true }
 
 [[language]]
 name = "python"
+
 # language-servers = ["ruff", "basedpyright"]
 language-servers = ["ruff", "ty"]
+
 auto-format = true
 
 [language-server.pyright.config.python.analysis]
@@ -163,7 +214,6 @@ inlayHints.genericTypes = true
 [language-server.ty]
 command = "ty"
 args = ["server"]
-
 
 [[language]]
 name = "toml"
@@ -217,3 +267,10 @@ language-servers = ["marksman", "rumdl"]
 # '`' = '`'
 # "'" = "'"
 # '|' = '|'
+
+[[language]]
+name = "bash"
+language-servers = ["bashls"]
+
+[language-server.bashls]
+command = "bashls"
